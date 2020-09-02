@@ -3,47 +3,82 @@
   <head>
     <title>First jQuery</title>
 
-    <script src="jquery-3.5.1.js"></script>
-    <script>
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script type="text/javascript">
       $("document").ready(function () {
-        $("#content").append("<p>Page content should be displayed11 here</p>");
+        $("#content").append(
+          "<p>Paragraph content should be displayed here</p>"
+        );
 
         // example of selectors
-        $("p").css("border", "3px solid blue");
+        // $("p").css("border", "3px solid blue");
 
         // example of filters
         $("h1:not(.intro)").css("border", "3px solid green");
 
         // example of html function
         // everything gets replaced with what we pass in html function
-        $("#content").html("<p>example of html function</p>");
+        // $("#content").html("<p>example of html function</p>");
 
-        $("p").on("mousemove", onMouseOver);
-        $("p").on("mouseleave", onMouseLeave);
-        $("p").on("click", onMouseClick);
+        // $("p").on("mousemove", onMouseOver);
+        // $("p").on("mouseleave", onMouseLeave);
+        $("p").on("click", loadHTML);
+        $("#clickable").click(loadHTML);
 
-        function onMouseOver(evt) {
-          $("#content").append(
-            "<p>You moved your mouse over the paragraph</p>"
-          );
-        }
+        // example of parent - child selector
+        $("div > p").css("border", "3px solid orange");
 
-        function onMouseLeave(evt) {
-          $("#content").html("<p>example of html function</p>");
-        }
+        // descendant selector
+        // select all paragraphs inside div container with a class of 'a'
+        $("div p.a").css("border", "3px solid blue");
 
-        function onMouseClick(evt) {
-          $("#content").append("<p>You click on the paragraph</p>");
-        }
+        // adjacent selector
+        // select 'div' element as long as it is next to h1 element
+        $("h1 + div").css("border", "3px solid red");
+
+        // sibling selector
+        // selects all 'p' elements that come after any element with a class of 'a'
+        $(".a ~ p").css("border", "3px solid purple");
       });
+
+      function onMouseOver(evt) {
+        $("#content").append("<p>You moved your mouse over the paragraph</p>");
+      }
+
+      function onMouseLeave(evt) {
+        $("#content").html(
+          "<div>\
+            <p>example of html function</p>\
+            <button>Clickable Button</button>\
+          </div>"
+        );
+        $("button").click(loadHTML);
+      }
+
+      function onMouseClick(evt) {
+        $("#content").append("<p>You click on the paragraph</p>");
+      }
+
+      function loadHTML() {
+        $("#innerContainer").load("samplehtml.html");
+      }
     </script>
   </head>
 
   <body>
     <h1 class="intro">First jQuery page</h1>
-    <h1>Second paragraph of my fancy jQuery page</h1>
+    <h1>Second header of my fancy jQuery page</h1>
     <div id="content">
       <p>Should this paragraph be the first or the second?</p>
+      <button id="clickable">Clickable</button>
+      <div id="innerContainer">
+        <p>This is paragraph 1 in inner div</p>
+        <p class="a">This is paragraph 2 in inner div</p>
+        <p>This is paragraph 3 in inner div</p>
+        <section>
+          <p class="a">This is paragraph 4 in inner div</p>
+        </section>
+      </div>
     </div>
   </body>
 </html>
