@@ -39,6 +39,40 @@
         // sibling selector
         // selects all 'p' elements that come after any element with a class of 'a'
         // $(".a ~ p").css("border", "3px solid purple");
+
+        // example of a filter with an attritube
+        // $("p[class]").css("border", "3px solid red");
+
+        // example of a filter with an attribute which equals to something
+        // $("p[id=par1]").css("border", "3px solid black");
+
+        // example of a filter with an id attritube, which selects all elements that start with a string 'par'
+        // $("p[id^=par]").css("border", "3px solid pink");
+
+        // example of a filter with two attributes
+        // $("p[id^=par][lang*=en]").css("border", "3px solid green");
+
+        // example of a contains filter
+        // select 'p' element which has 3 in it
+        // $("p:contains('3')").css("border", "3px solid gray");
+
+        // example of a contain filter
+        // which select 'p' elements which are parents themselfs
+        // parent means has an element inside of it or contains text
+        // $("p:parent").css("border", "3px solid red");
+
+        // example of a filter using has
+        // select all 'div' elements that have 'p' element with a class 'a' inside them
+        // $("div:has(p[class=a])").css("border", "3px solid orange");
+
+        // example of a first child of 'div' element
+        // $("div p:first-child").css("border", "3px solid red");
+
+        // example of a nth child of 'div' element
+        // $("div p:nth-child(3)").css("border", "3px solid green");
+
+        // example of a filter for every second child element of 'div' element
+        $("div p:nth-child(2n)").css("border", "3px solid orange");
       });
 
       function onMouseOver(evt) {
@@ -71,13 +105,15 @@
     <div id="content">
       <p>Should this paragraph be the first or the second?</p>
       <button id="clickable">Clickable</button>
+
       <div id="innerContainer">
-        <p>This is paragraph 1 in inner div</p>
+        <p id="par1">This is paragraph 1 in inner div</p>
         <p class="a">This is paragraph 2 in inner div</p>
-        <p>This is paragraph 3 in inner div</p>
-        <section>
-          <p class="a">This is paragraph 4 in inner div</p>
-        </section>
+        <p id="par3">This is paragraph 3 in inner div</p>
+        <!-- <section> -->
+        <p class="a">This is paragraph 4 in inner div</p>
+        <p id="par5" lang="en-us">This is paragraph 5 in inner div</p>
+        <!-- </section> -->
       </div>
     </div>
   </body>
