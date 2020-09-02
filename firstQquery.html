@@ -17,6 +17,24 @@
         // example of html function
         // everything gets replaced with what we pass in html function
         $("#content").html("<p>example of html function</p>");
+
+        $("p").on("mousemove", onMouseOver);
+        $("p").on("mouseleave", onMouseLeave);
+        $("p").on("click", onMouseClick);
+
+        function onMouseOver(evt) {
+          $("#content").append(
+            "<p>You moved your mouse over the paragraph</p>"
+          );
+        }
+
+        function onMouseLeave(evt) {
+          $("#content").html("<p>example of html function</p>");
+        }
+
+        function onMouseClick(evt) {
+          $("#content").append("<p>You click on the paragraph</p>");
+        }
       });
     </script>
   </head>
