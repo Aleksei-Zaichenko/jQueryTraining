@@ -6,13 +6,22 @@
     <script src="jquery-3.5.1.js"></script>
     <script>
       $("document").ready(function () {
-        $("#content").append("<p>Page content should be displayed here</p>");
+        $("#content").append("<p>Page content should be displayed11 here</p>");
+
+        // example of selectors
+        $("p").css("border", "3px solid blue");
+
+        // example of filters
+        $("h1:not(.intro)").css("border", "3px solid green");
       });
     </script>
   </head>
 
   <body>
-    <h1>First jQuery page</h1>
-    <div id="content"></div>
+    <h1 class="intro">First jQuery page</h1>
+    <h1>Second paragraph of my fancy jQuery page</h1>
+    <div id="content">
+      <p>Should this paragraph be the first or the second?</p>
+    </div>
   </body>
 </html>
