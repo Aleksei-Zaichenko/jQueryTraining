@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>HPlus Sport</title>
+
   <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript" src="jquery-3.5.1.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#products ul h2[data-type=vitamin]").each(function (index,element) {
+        $(element).css("background-color","blue");
+      })
+
+      $("#products ul h2[data-type=mineralwater]").each(function (index,element) {
+        $(element).css("background-color","purple");
+      })
+    })
+  </script>
+
 </head>
 <body>
 
