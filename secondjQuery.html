@@ -5,13 +5,35 @@
 
     <script type="text/javascript" src="jquery-3.5.1.js"></script>
     <script type="text/javascript">
-      $("document").ready(function () {});
+      $("document").ready(function () {
+        // get the children of 'div' element that has an id 'content'
+        // and set their css to ("border", "3px solid red")
+        $("#content").children().css("border", "3px solid red");
+
+        // set css of the next 'p' element after 'p' element with id 'firstParagraph' to ("border", "3px solid blue")
+        $("#firstParagraph").next().css("border", "3px solid blue");
+
+        // find a specific element ('#thirdParagraph') from given point ('body')
+        $("body").find("#thirdParagraph").css("border", "3px solid yellow");
+
+        // example of using each() function
+        var leftMargin = 5;
+        $("#content p").each(function (index, element) {
+          //$(element) converts to jQuery format
+          $(element).css("margin-left", leftMargin);
+          leftMargin += 5;
+        });
+      });
     </script>
   </head>
 
   <body>
     <h1 class="intro">Second jQuery page</h1>
-    <h1>Second header of my fancy jQuery page</h1>
-    <div id="content"></div>
+    <div id="content">
+      <h2>Second header of the page</h2>
+      <p id="firstParagraph">First paragraph of the second jQuery page</p>
+      <p>Second paragraph of the second jQuery page</p>
+      <p id="thirdParagraph">Third paragraph of the second jQuery page</p>
+    </div>
   </body>
 </html>
