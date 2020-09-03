@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First jQuery</title>
+
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+      $("document").ready(function () {
+        $(".create").click(createContent);
+        $(".change").click(changeContent);
+      });
+
+      function createContent() {
+        $(".innerContainer").html(
+          "<p>Some new Content is added through the use of html function</p>"
+        );
+      }
+
+      function changeContent() {
+        $(".innerContainer p").text("Initial paragraph was changed");
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1 class="intro">Third jQuery page</h1>
+    <div id="content">
+      <button class="create">Click to create</button>
+      <button class="change">Click to change</button>
+
+      <div class="innerContainer">
+        <p>First paragraph containg five words</p>
+        <p>Second paragraph containg five words</p>
+        <p>Third paragraph containg five words</p>
+      </div>
+    </div>
+  </body>
+</html>
