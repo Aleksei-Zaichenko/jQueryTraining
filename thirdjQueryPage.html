@@ -8,6 +8,10 @@
       $("document").ready(function () {
         $(".create").click(createContent);
         $(".change").click(changeContent);
+        $(".addNewParagraph").click(addContent);
+        $(".wrapEachIndividually").click(wrapEachIndividual);
+        $(".wrapAll").click(wrapAll);
+        $(".emptifyContainer").click(clearContainer);
       });
 
       function createContent() {
@@ -19,6 +23,27 @@
       function changeContent() {
         $(".innerContainer p").text("Initial paragraph was changed");
       }
+
+      //every time this function gets called a new paragraph will be appended to
+      //it`s parent 'div' element
+      function addContent() {
+        $("<p>New paragraph added </p>").appendTo(".innerContainer");
+      }
+
+      //every 'p' element get wrapped with 'div style='color:blue'
+      function wrapEachIndividual() {
+        $(".innerContainer p").wrap("<div style='color:blue'/>");
+      }
+
+      //every 'p' element get wrapped with 'div style='color:red'
+      function wrapAll() {
+        $(".innerContainer p").wrapAll("<div style='color:red'/>");
+      }
+
+      //empty function cleares out a container
+      function clearContainer() {
+        $("div.innerContainer").empty();
+      }
     </script>
   </head>
 
@@ -27,12 +52,20 @@
     <div id="content">
       <button class="create">Click to create</button>
       <button class="change">Click to change</button>
+      <button class="addNewParagraph">Click to add new paragraph</button>
+      <button class="wrapEachIndividually">
+        Click To wrap each paragraph individually
+      </button>
+      <button class="wrapAll">CLick to wrap All</button>
+      <button class="emptifyContainer">CLick to clear</button>
 
       <div class="innerContainer">
         <p>First paragraph containg five words</p>
         <p>Second paragraph containg five words</p>
         <p>Third paragraph containg five words</p>
       </div>
+
+      <p>A paragraph outsie of inner div</p>
     </div>
   </body>
 </html>
